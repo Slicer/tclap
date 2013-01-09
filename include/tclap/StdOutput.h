@@ -34,6 +34,12 @@
 #include <tclap/XorHandler.h>
 #include <tclap/Arg.h>
 
+// Conditionally undefine the min macro that Visual Studio defines.
+#ifdef min
+#undef min
+#endif
+
+
 namespace TCLAP {
 
 /**
