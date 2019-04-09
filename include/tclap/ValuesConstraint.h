@@ -26,7 +26,11 @@
 #define TCLAP_VALUESCONSTRAINT_H
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#  include <config.h>
+#else
+#  ifndef HAVE_SSTREAM //This may have been defined elsewhere
+#  define HAVE_SSTREAM
+#  endif
 #endif
 
 #include <string>
