@@ -3,5 +3,5 @@
 # a vector of strings and that combined switch
 # handling doesn't get fooled if the delimiter
 # is in the string
-# success  
+# success
 ./simple-test.sh `basename $0 .sh` test13

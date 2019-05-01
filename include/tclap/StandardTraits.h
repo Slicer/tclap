@@ -30,7 +30,7 @@
 #include <config.h> // To check for long long
 #endif
 
-// If Microsoft has already typedef'd wchar_t as an unsigned 
+// If Microsoft has already typedef'd wchar_t as an unsigned
 // short, then compiles will break because it's as if we're
 // creating ArgTraits twice for unsigned short. Thus...
 #ifdef _MSC_VER

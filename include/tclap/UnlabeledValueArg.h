@@ -1,26 +1,26 @@
 // -*- Mode: c++; c-basic-offset: 4; tab-width: 4; -*-
 
 
-/****************************************************************************** 
- * 
+/******************************************************************************
+ *
  *  file:  UnlabeledValueArg.h
- * 
+ *
  *  Copyright (c) 2003, Michael E. Smoot .
  *  Copyright (c) 2004, Michael E. Smoot, Daniel Aarno.
  *  All rights reserved.
- * 
+ *
  *  See the file COPYING in the top directory of this distribution for
  *  more information.
- *  
- *  THE SOFTWARE IS PROVIDED _AS IS_, WITHOUT WARRANTY OF ANY KIND, EXPRESS 
- *  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
- *  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
- *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
- *  DEALINGS IN THE SOFTWARE.  
- *  
- *****************************************************************************/ 
+ *
+ *  THE SOFTWARE IS PROVIDED _AS IS_, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ *  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ *  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ *  DEALINGS IN THE SOFTWARE.
+ *
+ *****************************************************************************/
 
 
 #ifndef TCLAP_UNLABELED_VALUE_ARGUMENT_H
@@ -74,18 +74,18 @@ class UnlabeledValueArg : public ValueArg<T>
 		 * of the program.
 		 * \param ignoreable - Allows you to specify that this argument can be
 		 * ignored if the '--' flag is set.  This defaults to false (cannot
-		 * be ignored) and should  generally stay that way unless you have 
+		 * be ignored) and should  generally stay that way unless you have
 		 * some special need for certain arguments to be ignored.
 		 * \param v - Optional Visitor.  You should leave this blank unless
 		 * you have a very good reason.
 		 */
-		UnlabeledValueArg( const std::string& name, 
-			               const std::string& desc, 
+		UnlabeledValueArg( const std::string& name,
+			               const std::string& desc,
 						   bool req,
 				           T value,
 				           const std::string& typeDesc,
 						   bool ignoreable = false,
-				           Visitor* v = NULL); 
+				           Visitor* v = NULL);
 
 		/**
 		 * UnlabeledValueArg constructor.
@@ -104,20 +104,20 @@ class UnlabeledValueArg : public ValueArg<T>
 		 * \param parser - A CmdLine parser object to add this Arg to
 		 * \param ignoreable - Allows you to specify that this argument can be
 		 * ignored if the '--' flag is set.  This defaults to false (cannot
-		 * be ignored) and should  generally stay that way unless you have 
+		 * be ignored) and should  generally stay that way unless you have
 		 * some special need for certain arguments to be ignored.
 		 * \param v - Optional Visitor.  You should leave this blank unless
 		 * you have a very good reason.
 		 */
-		UnlabeledValueArg( const std::string& name, 
-			               const std::string& desc, 
+		UnlabeledValueArg( const std::string& name,
+			               const std::string& desc,
 						   bool req,
 				           T value,
 				           const std::string& typeDesc,
 						   CmdLineInterface& parser,
 						   bool ignoreable = false,
-				           Visitor* v = NULL ); 					
-						
+				           Visitor* v = NULL );
+
 		/**
 		 * UnlabeledValueArg constructor.
 		 * \param name - A one word name for the argument.  Note that this is used for
@@ -132,20 +132,20 @@ class UnlabeledValueArg : public ValueArg<T>
 		 * to constrain this Arg.
 		 * \param ignoreable - Allows you to specify that this argument can be
 		 * ignored if the '--' flag is set.  This defaults to false (cannot
-		 * be ignored) and should  generally stay that way unless you have 
+		 * be ignored) and should  generally stay that way unless you have
 		 * some special need for certain arguments to be ignored.
 		 * \param v - Optional Visitor.  You should leave this blank unless
 		 * you have a very good reason.
 		 */
-		UnlabeledValueArg( const std::string& name, 
-			               const std::string& desc, 
+		UnlabeledValueArg( const std::string& name,
+			               const std::string& desc,
 						   bool req,
 				           T value,
 				           Constraint<T>* constraint,
 						   bool ignoreable = false,
-				           Visitor* v = NULL ); 
+				           Visitor* v = NULL );
 
-		
+
 		/**
 		 * UnlabeledValueArg constructor.
 		 * \param name - A one word name for the argument.  Note that this is used for
@@ -161,29 +161,29 @@ class UnlabeledValueArg : public ValueArg<T>
 		 * \param parser - A CmdLine parser object to add this Arg to
 		 * \param ignoreable - Allows you to specify that this argument can be
 		 * ignored if the '--' flag is set.  This defaults to false (cannot
-		 * be ignored) and should  generally stay that way unless you have 
+		 * be ignored) and should  generally stay that way unless you have
 		 * some special need for certain arguments to be ignored.
 		 * \param v - Optional Visitor.  You should leave this blank unless
 		 * you have a very good reason.
 		 */
-		UnlabeledValueArg( const std::string& name, 
-			               const std::string& desc, 
+		UnlabeledValueArg( const std::string& name,
+			               const std::string& desc,
 						   bool req,
 				           T value,
 				           Constraint<T>* constraint,
 						   CmdLineInterface& parser,
 						   bool ignoreable = false,
 				           Visitor* v = NULL);
-						
+
 		/**
 		 * Handles the processing of the argument.
 		 * This re-implements the Arg version of this method to set the
 		 * _value of the argument appropriately.  Handling specific to
 		 * unlabeled arguments.
 		 * \param i - Pointer the the current argument in the list.
-		 * \param args - Mutable list of strings. 
+		 * \param args - Mutable list of strings.
 		 */
-		virtual bool processArg(int* i, std::vector<std::string>& args); 
+		virtual bool processArg(int* i, std::vector<std::string>& args);
 
 		/**
 		 * Overrides shortID for specific behavior.
@@ -212,15 +212,15 @@ class UnlabeledValueArg : public ValueArg<T>
  * Constructor implementation.
  */
 template<class T>
-UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name, 
-					                    const std::string& desc, 
+UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
+					                    const std::string& desc,
 										bool req,
 					                    T val,
 					                    const std::string& typeDesc,
 					                    bool ignoreable,
 					                    Visitor* v)
 : ValueArg<T>("", name, desc, req, val, typeDesc, v)
-{ 
+{
 	_ignoreable = ignoreable;
 
 	OptionalUnlabeledTracker::check(req, toString());
@@ -228,8 +228,8 @@ UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
 }
 
 template<class T>
-UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name, 
-					                    const std::string& desc, 
+UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
+					                    const std::string& desc,
 										bool req,
 					                    T val,
 					                    const std::string& typeDesc,
@@ -237,7 +237,7 @@ UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
 					                    bool ignoreable,
 					                    Visitor* v)
 : ValueArg<T>("", name, desc, req, val, typeDesc, v)
-{ 
+{
 	_ignoreable = ignoreable;
 	OptionalUnlabeledTracker::check(req, toString());
 	parser.add( this );
@@ -247,22 +247,22 @@ UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
  * Constructor implementation.
  */
 template<class T>
-UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name, 
-                                        const std::string& desc, 
+UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
+                                        const std::string& desc,
 										bool req,
                                         T val,
                                         Constraint<T>* constraint,
                                         bool ignoreable,
                                         Visitor* v)
 : ValueArg<T>("", name, desc, req, val, constraint, v)
-{ 
+{
 	_ignoreable = ignoreable;
 	OptionalUnlabeledTracker::check(req, toString());
 }
 
 template<class T>
-UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name, 
-					                    const std::string& desc, 
+UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
+					                    const std::string& desc,
 										bool req,
 					                    T val,
 					                    Constraint<T>* constraint,
@@ -270,7 +270,7 @@ UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
 					                    bool ignoreable,
 					                    Visitor* v)
 : ValueArg<T>("", name, desc, req, val, constraint,  v)
-{ 
+{
 	_ignoreable = ignoreable;
 	OptionalUnlabeledTracker::check(req, toString());
 	parser.add( this );
@@ -280,17 +280,17 @@ UnlabeledValueArg<T>::UnlabeledValueArg(const std::string& name,
  * Implementation of processArg().
  */
 template<class T>
-bool UnlabeledValueArg<T>::processArg(int *i, std::vector<std::string>& args) 
+bool UnlabeledValueArg<T>::processArg(int *i, std::vector<std::string>& args)
 {
-	
+
 	if ( _alreadySet )
 		return false;
-	
+
 	if ( _hasBlanks( args[*i] ) )
 		return false;
 
 	// never ignore an unlabeled arg
-	
+
 	_extractValue( args[*i] );
 	_alreadySet = true;
 	return true;
@@ -315,8 +315,8 @@ std::string UnlabeledValueArg<T>::longID(const std::string& val) const
 	static_cast<void>(val); // Ignore input, don't warn
 
 	// Ideally we would like to be able to use RTTI to return the name
-	// of the type required for this argument.  However, g++ at least, 
-	// doesn't appear to return terribly useful "names" of the types.  
+	// of the type required for this argument.  However, g++ at least,
+	// doesn't appear to return terribly useful "names" of the types.
 	return std::string("<") + _typeDesc + ">";
 }
 
